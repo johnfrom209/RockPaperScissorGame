@@ -97,14 +97,19 @@ function rPSGame() {
     }
 
     showStats();
-    rPSGame();
+    // asking if they want to play again and if false return out of game
+    var replay = playAgain();
+    if (!replay) {
+        alert("Exit Game.");
+        return;
+    }
 
 
 }
 
 function aiChoice() {
     var answer = choice[Math.floor(Math.random() * choice.length)];
-    alert("The AI choose, " + answer + ".")
+    alert("The AI choose, " + answer + ".");
     return answer;
 }
 
@@ -113,4 +118,11 @@ function showStats() {
     alert("Here are your stats:\n" + "Wins:" + statsWin + "\n" + "Losses:" + statsLoss + "\n" + "Draws:" + statsDraw);
 }
 
-//Math.floor(Math.random() * choice.length)
+function playAgain() {
+
+    if (confirm("Do you want to play again?")) {
+        rPSGame();;
+    } else {
+        return false;
+    }
+}
