@@ -42,16 +42,16 @@ function rPSGame() {
         var aiMove = aiChoice();
         if (answer === aiMove) {
             statsDraw += 1;
-            showStats();
+            //showStats();
         }
         else if (aiMove === "P") {
             //player losses
             statsLoss += 1;
-            showStats();
+            //showStats();
         }
         else {
             statsWin += 1;
-            showStats();
+            //showStats();
         }
     }
     else if (answer === "P" || answer === "p") {
@@ -60,16 +60,16 @@ function rPSGame() {
         if (answer === aiMove) {
             //tie
             statsDraw += 1;
-            showStats();
+            //showStats();
         }
         else if (aiMove === "S") {
             //player losses
             statsLoss += 1;
-            showStats();
+            //showStats();
         }
         else {
             statsWin++;
-            showStats();
+            //showStats();
         }
     }
     else if (answer === "S" || answer === "s") {
@@ -78,15 +78,16 @@ function rPSGame() {
         if (answer === aiMove) {
             //tie
             statsDraw += 1;
+            //showStats();
         }
         else if (aiMove === "R") {
             //player losses
             statsLoss += 1;
-            showStats();
+            //showStats();
         }
         else {
             statsWin += 1;
-            showStats();
+            //showStats();
         }
     }
     else {
@@ -95,7 +96,9 @@ function rPSGame() {
         rPSGame();
     }
 
+    showStats();
     rPSGame();
+
 
 }
 
