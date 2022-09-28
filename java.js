@@ -22,37 +22,35 @@ var statsDraw = 0;
 
 var choice = ["R", "P", "S"];
 
-
-//prompt title says ugly
 if (confirm("Do you want to play RPS?")) {
     rPSGame();
 }
 else {
     //clear the stats
+    alert("Cancelled Game.");
 }
 
 function rPSGame() {
 
     let answer = prompt("Please enter your move", "R, P, S.");
-    answer.toUpperCase;
-    let text;
+    answer = answer.toUpperCase();
     if (answer == null || answer == "") {
-        text = "User cancelled the prompt.";
     }
+    //is the input Rock
     else if (answer === "R" || answer === "r") {
         // calling ai
         var aiMove = aiChoice();
         if (answer === aiMove) {
-            statsDraw++;
+            statsDraw += 1;
             showStats();
         }
         else if (aiMove === "P") {
             //player losses
-            statsLoss++;
+            statsLoss += 1;
             showStats();
         }
         else {
-            statsWin++;
+            statsWin += 1;
             showStats();
         }
     }
@@ -61,10 +59,12 @@ function rPSGame() {
         var aiMove = aiChoice();
         if (answer === aiMove) {
             //tie
+            statsDraw += 1;
+            showStats();
         }
         else if (aiMove === "S") {
             //player losses
-            statsLoss++;
+            statsLoss += 1;
             showStats();
         }
         else {
@@ -77,14 +77,15 @@ function rPSGame() {
         var aiMove = aiChoice();
         if (answer === aiMove) {
             //tie
+            statsDraw += 1;
         }
         else if (aiMove === "R") {
             //player losses
-            statsLoss++;
+            statsLoss += 1;
             showStats();
         }
         else {
-            statsWin++;
+            statsWin += 1;
             showStats();
         }
     }
@@ -93,6 +94,8 @@ function rPSGame() {
         console.log(answer);
         rPSGame();
     }
+
+    rPSGame();
 
 }
 
@@ -104,6 +107,7 @@ function aiChoice() {
 
 function showStats() {
     //window prompt showing the stats
+    alert("Here are your stats:\n" + "Wins:" + statsWin + "\n" + "Losses:" + statsLoss + "\n" + "Draws:" + statsDraw);
 }
 
 //Math.floor(Math.random() * choice.length)
